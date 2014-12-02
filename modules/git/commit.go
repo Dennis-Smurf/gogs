@@ -28,7 +28,13 @@ func (c *Commit) Message() string {
 }
 
 func (c *Commit) Summary() string {
-	return strings.Split(c.CommitMessage, "\n")[0]
+	str := strings.Replace(c.CommitMessage, "\n", " ", -1)
+	isMoreThanX := len(str) > 50
+	if isMoreThanX {
+		str += "..."
+	}
+
+	return str
 }
 
 // Return oid of the parent number n (0-based index). Return nil if no such parent exists.

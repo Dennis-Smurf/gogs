@@ -33,7 +33,6 @@ func (c *Commit) Summary() string {
 	if isMoreThanX {
 		str += "..."
 	}
-
 	return str
 }
 
